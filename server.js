@@ -1,5 +1,6 @@
  const express = require('express');
  const routes = require('./controllers');
+ const helpers = require('./utils/helpers');
  
  const path = require('path');
  const exphbs = require('express-handlebars');
@@ -25,7 +26,7 @@
 
  app.use(session(sess));
 
- const hbs = exphbs.create({});
+ const hbs = exphbs.create({ helpers });
 
  app.engine('handlebars', hbs.engine);
  app.set('view engine', 'handlebars');
